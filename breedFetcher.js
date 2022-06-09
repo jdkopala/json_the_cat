@@ -1,7 +1,7 @@
 const request = require('request');
 const args = process.argv.slice(2);
 const query = args[0];
-const URL = `https://api.thecatapi.com/v1/breeds/search?q=${query}`
+const URL = `https://api.thecatapi.com/v1/breeds/search?q=${query}`;
 
 request(URL, (error, response, body) => {
   // console.log("response: ", response);
@@ -15,7 +15,7 @@ request(URL, (error, response, body) => {
   } else {
     let data = JSON.parse(body);
     if (data[0] === undefined) {
-      console.log("There was an invalid input, please try again")
+      console.log("There was an invalid input, please try again");
       return;
     }
     console.log(data[0].description);
@@ -23,4 +23,4 @@ request(URL, (error, response, body) => {
     // console.log(typeof body);
     // console.log("typeof data: ", typeof data);
   }
-})
+});
